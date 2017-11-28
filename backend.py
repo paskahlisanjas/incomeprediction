@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+response_ = 'Response goes here!'
+
 @app.route('/')
 def index():
-   return render_template('index.html')
+   return render_template('index.html', response = response_)
+       
 
 @app.route('/process', methods=['GET', 'POST'])
 def process():
@@ -88,9 +91,10 @@ def process():
 
         result = model.predict(encoded.values[:,:len(encoded.loc[0])-1])
 
-        return 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
+        response = 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
     else:
-        return '<h1>Failed to run the process due to invalid request.<h1>'
+        response = 'Failed to run the process due to invalid request.'
+    return redirect('/')
 
 if __name__ == '__main__':
    app.run(debug = True)
