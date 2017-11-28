@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <title>Predict Your Income</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+        .gender-radio {
+            margin-right: 12px;
+        }
+        form {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .center_things_inside {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <h1 align="center">Online Income Predictor</h1>
+            <p align="center"> Predict your income here!</p>
+        </div>
+        <form action="/process" method="POST">
+            <div class="row">
+                <div class="col-lg-1">
+                    <label for="age">Age</label>
+                    <select class="form-control" name="age">
+                        <option>17</option><option>18</option><option>19</option><option>20</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label for="workclass">Workclass</label>
+                    <select class="form-control" name="workclass">
+                        <option>Private</option><option>Self-emp-not-inc</option>
+                        <option>Self-emp-inc</option><option>Federal-gov</option>
+                        <option>Local-gov</option><option>State-gov</option>
+                        <option>Without-pay</option><option>Never-worked</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label for="fnlwgt">Final Weight</label>
+                    <input type="text" class="form-control" id="usr" name="fnlwgt">
+                </div>               
+                <div class="col-lg-2">
+                    <label for="education">Education</label>
+                    <select class="form-control" name="education">
+                        <option>Bachelors</option><option>Some-college</option>
+                        <option>11th</option><option>HS-grad</option>
+                        <option>Prof-school</option><option>Assoc-acdm</option>
+                        <option>Assoc-voc</option><option>9th</option>
+                        <option>7th-8th</option><option>12th</option>
+                        <option>Masters</option><option>1st-4th</option>
+                        <option>10th</option><option>Doctorate</option>
+                        <option>5th-6th</option><option>Preschool</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label for="education_number">Education Number</label>
+                    <select class="form-control" name="education_num">
+                        <option>1</option><option>2</option>
+                        <option>3</option><option>4</option>
+                        <option>5</option><option>6</option>
+                        <option>7</option><option>8</option>
+                        <option>9</option><option>10</option>
+                        <option>11</option><option>12</option>
+                        <option>13</option><option>14</option>
+                        <option>15</option><option>16</option>
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <label for="marital_status">Marital Status</label>
+                    <select class="form-control" name="marital_status">
+                        <option>Married-civ-spouse</option>
+                        <option>Divorced</option>
+                        <option>Never-married</option>
+                        <option>Separated</option>
+                        <option>Widowed</option>
+                        <option>Married-spouse-absent</option>
+                        <option>Married-AF-spouse</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="occupation">Occupation</label>
+                    <select class="form-control" name="occupation">
+                        <option>Tech-support</option><option>Craft-repair</option>
+                        <option>Other-service</option><option>Sales</option>
+                        <option>Exec-managerial</option><option>Prof-speciality</option>
+                        <option>Handlers-cleaners</option><option>Machine-op-inspct</option>
+                        <option>Adm-clerical</option><option>Farming-fishing</option>
+                        <option>Transport-moving</option><option>Priv-house-serv</option>
+                        <option>Protective-serv</option><option>Armed-Forces</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label for="relationship">Relationship</label>
+                    <select class="form-control" name="relationship">
+                        <option>Wife</option><option>Own-child</option>
+                        <option>Husband</option><option>Not-in-family</option>
+                        <option>Unmarried</option><option>Other-relative</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label for="race">Race</label>
+                    <select class="form-control" name="race">
+                        <option>White</option><option>Asian-Pac-Islander</option>
+                        <option>Amer-Indian-Eskimo</option><option>Black</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label for="sex">Sex</label>
+                    <div class="radio">
+                        <div><input type="radio" name="gender" class="gender-radio" value="Male">Male</div>
+                        <div><input type="radio" name="gender" class="gender-radio" value="Female">Female</div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <label for="capital-gain">Capital Gain</label>
+                    <input type="text" class="form-control" name="capital_gain">
+                </div>
+                <div class="col-lg-2">
+                    <label for="capital-loss">Capital Loss</label>
+                    <input type="text" class="form-control" name="capital_loss">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label for="hours-per-week">Hours Per Week</label>
+                    <input type="text" class="form-control" name="hours_per_week">
+                </div>
+                <div class="col-lg-6">
+                    <label for="native-country">Native Country</label>
+                    <select class="form-control" name="native_country">
+                        <option>United-States</option><option>Cambodia</option>
+                        <option>England</option><option>Puerto-Rico</option>
+                        <option>Canada</option><option>Germany</option>
+                        <option>Outlying-US(Guam-USVI-etc)</option><option>India</option>
+                        <option>Japan</option><option>Greece</option>
+                        <option>South</option><option>China</option>
+                        <option>Cuba</option><option>Iran</option>
+                        <option>Honduras</option><option>Philippines</option>
+                        <option>Italy</option><option>Poland</option>
+                        <option>Jamaica</option><option>Vietnam</option>
+                        <option>Mexico</option><option>Portugal</option>
+                        <option>Ireland</option><option>France</option>
+                        <option>Dominican-Republic</option><option>Laos</option>
+                        <option>Ecuador</option><option>Taiwan</option>
+                        <option>Haiti</option><option>Columbia</option>
+                        <option>Hungary</option><option>Guatemala</option>
+                        <option>Nicaragua</option><option>Scotland</option>
+                        <option>Thailand</option><option>Yugoslavia</option>
+                        <option>El-Salvador</option><option>Trinidad&Tobago</option>
+                        <option>Peru</option><option>Hong</option>
+                        <option>Holand-Netherlands</option>
+                    </select>
+                </div>
+            </div>
+            <div class="center_things_inside">
+                <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+        </form>
+        <div class="center_things_inside">
+            <h1>Response goes here!</h1>
+        </div>
+    </body>
+</html>
