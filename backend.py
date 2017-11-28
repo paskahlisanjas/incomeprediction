@@ -1,11 +1,9 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-response_ = 'Response goes here!'
-
 @app.route('/')
 def index():
-   return render_template('index.html', response = response_)
+   return render_template('index.html', response = 'Halo')
        
 
 @app.route('/process', methods=['GET', 'POST'])
@@ -94,7 +92,8 @@ def process():
         response = 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
     else:
         response = 'Failed to run the process due to invalid request.'
-    return redirect('/')
+
+    return render_template('index.html', response = response)
 
 if __name__ == '__main__':
    app.run(debug = True)
