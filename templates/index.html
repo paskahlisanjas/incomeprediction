@@ -27,7 +27,7 @@
             <h1 align="center">Online Income Predictor</h1>
             <p align="center"> Predict your income here!</p>
         </div>
-        <form action="/process" method="POST">
+        <form role="form" method="post">
             <div class="row">
                 <div class="col-lg-1">
                     <label for="age">Age</label>
@@ -167,7 +167,29 @@
             </div>
         </form>
         <div class="center_things_inside" id="response">
-            <h1>{{ response }}</h1>
+            <h1>Your Response Here</h1>
         </div>
+		<script>
+		$(function(){
+			$("form").on("submit", function (e) {
+				e.preventDefault();
+				$.ajax({
+					url: '/process',
+					data: $('form').serialize(),
+					type: 'POST',
+					async: false,
+					success: function(response){
+						console.log(response.hasil);
+						var output = response.hasil;
+						$("#response").html("<h1>"+output+"<h1>");
+					},
+					error: function(error){
+						console.log('error');
+						console.log(error);
+					}
+		});
+	});
+});
+		</script>
     </body>
 </html>

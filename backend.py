@@ -1,11 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
-response = 'Response goes here!'
-
-@app.route('/')
+@app.route('/',methods=['GET', 'POST'])
 def index():
-   return render_template('index.html', response = response)
+   return render_template('index.html')
        
 
 @app.route('/process', methods=['GET', 'POST'])
@@ -91,10 +89,11 @@ def process():
 
         result = model.predict(encoded.values[:,:len(encoded.loc[0])-1])
 
-        response = 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
+        result= 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
+        hasil=result
+        return jsonify(hasil=result)
     else:
-        response = 'Failed to run the process due to invalid request.'
-    return redirect(url_for('/'))
+        return '<h1>Failed to run the process due to invalid request.<h1>'
 
 if __name__ == '__main__':
    app.run(debug = True)
