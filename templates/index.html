@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
@@ -32,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-1">
                     <label for="age">Age</label>
-					<input type="text" name="age" class="form-control">
+					<input type="text" name="age" class="form-control" value="20">
                 </div>
                 <div class="col-lg-2">
                     <label for="workclass">Workclass</label>
@@ -45,7 +44,7 @@
                 </div>
                 <div class="col-lg-2">
                     <label for="fnlwgt">Final Weight</label>
-                    <input type="text" class="form-control" id="usr" name="fnlwgt">
+                    <input type="text" class="form-control" id="usr" name="fnlwgt" value="0">
                 </div>               
                 <div class="col-lg-2">
                     <label for="education">Education</label>
@@ -118,23 +117,23 @@
                 <div class="col-lg-2">
                     <label for="sex">Sex</label>
                     <div class="radio">
-                        <div><input type="radio" name="gender" class="gender-radio" value="Male">Male</div>
+                        <div><input type="radio" name="gender" class="gender-radio" value="Male" checked>Male</div>
                         <div><input type="radio" name="gender" class="gender-radio" value="Female">Female</div>
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <label for="capital-gain">Capital Gain</label>
-                    <input type="text" class="form-control" name="capital_gain">
+                    <input type="text" class="form-control" name="capital_gain" value="0">
                 </div>
                 <div class="col-lg-2">
                     <label for="capital-loss">Capital Loss</label>
-                    <input type="text" class="form-control" name="capital_loss">
+                    <input type="text" class="form-control" name="capital_loss" value="0">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <label for="hours-per-week">Hours Per Week</label>
-                    <input type="text" class="form-control" name="hours_per_week">
+                    <input type="text" class="form-control" name="hours_per_week" value="0">
                 </div>
                 <div class="col-lg-6">
                     <label for="native-country">Native Country</label>
