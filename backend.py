@@ -89,11 +89,12 @@ def process():
 
         result = model.predict(encoded.values[:,:len(encoded.loc[0])-1])
 
-        result= 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
-        hasil=result
-        return jsonify(hasil=result)
+        result = 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
+        hasil_ = result
     else:
-        return '<h1>Failed to run the process due to invalid request.<h1>'
+        hasil_ = 'Failed to run the process due to invalid request.'
+    
+    return jsonify(hasil = hasil_)
 
 if __name__ == '__main__':
    app.run(debug = True)
