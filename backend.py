@@ -77,16 +77,18 @@ def process():
         df.loc[6] = [0, 0, 0, 0, 0, 'Other', 'Female', 0, 0, 0, 0]
 
         encoded = pd.get_dummies(df, prefix=['race', 'sex'])
+        print('PRINT encoded')
         print(encoded)
 
         from sklearn.externals import joblib
         model = joblib.load('best_model.pkl')
+        #import numpy as np
+        #example = np.array(features)
+        #example = example.reshape(1, -1)
 
-        print(encoded)
+        result = model.predict(encoded.values[:,:len(encoded.loc[0])-1])
 
-        print(model.predict(encoded))
-
-        return "ok"
+        return 'Less than or equals to 50k' if result[0] == 0 else 'More than 50k'
     else:
         return '<h1>Failed to run the process due to invalid request.<h1>'
 
