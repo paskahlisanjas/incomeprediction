@@ -59,6 +59,7 @@ def process():
         df.occupation = occupation_cat
         df.relationship = relationship_cat
         df.native_country = native_country_cat
+        df.workclass = workclass_cat
 
         # drop income attribute for features-extracting purpose
         # del df['income']
@@ -75,7 +76,7 @@ def process():
         df.loc[5] = [0, 0, 0, 0, 0, 'Black', 'Female', 0, 0, 0, 0]
         df.loc[6] = [0, 0, 0, 0, 0, 'Other', 'Female', 0, 0, 0, 0]
 
-        encoded = pd.get_dummies(df, prefix=['workclass', 'race', 'sex'])
+        encoded = pd.get_dummies(df, prefix=['race', 'sex'])
         print(encoded)
 
         from sklearn.externals import joblib
